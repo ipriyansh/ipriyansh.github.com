@@ -39,7 +39,7 @@ html, body {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .wrapper {
-  background-color: lightblue;
+ /* background-color: lightblue; */
   
   max-width: 100%;
   display: flex;
@@ -47,8 +47,8 @@ html, body {
   height: 100%;
 }
 .left, .right {
-  background-color: lightblue;
-  
+ /* background-color: lightblue;
+  */
   margin: 5px;
   max-width: 100%;
   flex: 1;
