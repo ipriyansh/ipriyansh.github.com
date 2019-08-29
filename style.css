@@ -6,6 +6,7 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+   font-family: 'Poppins', sans-serif;
 }
 .name {
   font-family: 'Livvic', sans-serif;
