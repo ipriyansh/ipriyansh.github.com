@@ -1,5 +1,5 @@
 html, body {
- /* display: flex; */
+  display: flex; 
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -39,17 +39,17 @@ html, body {
 .wrapper {
   
   max-width: 50%;
- /* display: flex;
-  flex-direction: row; */
+  display: flex;
+  flex-direction: row; 
   height: 100%;
 }
 .left, .right {
   
   margin: 5px;
   max-width: 100%;
- /* flex: 1;
+  flex: 1;
   display: flex;
-  flex-direction: column; */
+  flex-direction: column; 
   justify-content: center;
 }
 
