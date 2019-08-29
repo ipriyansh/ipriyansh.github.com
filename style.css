@@ -7,7 +7,10 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
-
+.name {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 2px;
+}
 .wrapper {
   background-color: lightpink;
   
@@ -38,8 +41,4 @@ html, body {
 }
 .body {
   background: linear-gradient(to bottom, rgba(231, 240, 245, 1) 0%, rgba(170, 221, 235, 1) 100%);
-}
-.name {
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 2px;
 }
