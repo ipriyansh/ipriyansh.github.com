@@ -40,16 +40,16 @@ html, body {
 .wrapper {
   background-color: grey;
   
-  max-width: 100%;
+  max-width: 50%;
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 80%;
 }
 .left, .right {
   background-color: lightblue;
   
   margin: 5px;
-  max-width: 50%;
+  max-width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
