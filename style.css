@@ -37,8 +37,14 @@ html, body {
 .social-links a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-
-
+.wrapper {
+  background-color: grey;
+  
+  max-width: 50%;
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+}
 .left, .right {
   background-color: lightblue;
   
