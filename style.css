@@ -1,12 +1,4 @@
-
-html { 
-  background: url(images/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-body {
+html, body {
   display: flex;
   align-items: center;
   justify-content: center;
