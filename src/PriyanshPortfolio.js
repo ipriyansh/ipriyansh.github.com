@@ -22,7 +22,7 @@ const PriyanshPortfolio = () => {
     },
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/priyansh-sourav-8136a816b/',
+      url: 'https://www.linkedin.com/in/priyansh-sourav/',
       icon: <Linkedin size={24} />,
     },
     {
@@ -40,6 +40,7 @@ const PriyanshPortfolio = () => {
     skills: [
       'Python', 
       'SQL', 
+      'R'
       'Google Cloud Platform', 
       'BigQuery', 
       'ETL Pipelines', 
