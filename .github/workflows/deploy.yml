@@ -12,6 +12,8 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages  # Required environment for GitHub Pages deployments
     
     steps:
     - name: Checkout Repository
