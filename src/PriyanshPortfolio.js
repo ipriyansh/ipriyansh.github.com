@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Code, Award, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, Award } from 'lucide-react';
 
 const PriyanshPortfolio = () => {
   const [activeSection, setActiveSection] = useState('bio');
