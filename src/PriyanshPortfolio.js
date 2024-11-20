@@ -40,7 +40,7 @@ const PriyanshPortfolio = () => {
     skills: [
       'Python', 
       'SQL', 
-      'R'
+      'R',
       'Google Cloud Platform', 
       'BigQuery', 
       'ETL Pipelines', 
