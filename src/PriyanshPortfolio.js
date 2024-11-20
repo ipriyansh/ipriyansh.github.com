@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
-import { Github, Linkedin, Mail, Code, Award } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Linkedin, Mail, Code, Award, ExternalLink } from 'lucide-react';
 
 const PriyanshPortfolio = () => {
   const [activeSection, setActiveSection] = useState('bio');
+  const [isRotating, setIsRotating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const handleImageClick = () => {
+    setIsRotating(true);
+    setTimeout(() => setIsRotating(false), 1000);
+  };
 
   const socialLinks = [
     {
@@ -85,28 +96,57 @@ const PriyanshPortfolio = () => {
   const renderSection = () => {
     switch(activeSection) {
       case 'bio':
-        return <p className="text-gray-300">{sections.bio}</p>;
+        return (
+          <p className="text-gray-300 leading-relaxed animate-fade-in">
+            {sections.bio}
+          </p>
+        );
       case 'skills':
         return (
-          <ul className="grid grid-cols-2 gap-2">
-            {sections.skills.map(skill => (
-              <li key={skill} className="bg-gray-800 p-2 rounded text-center">
-                {skill}
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {sections.skills.map((skill, index) => (
+              <li 
+                key={skill}
+                className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg shadow-lg 
+                          transform hover:scale-105 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="text-center text-gray-300 font-medium">
+                  {skill}
+                </div>
               </li>
             ))}
           </ul>
         );
       case 'experience':
-        return sections.experience.map(exp => (
-          <div key={`${exp.company}-${exp.role}`} className="bg-gray-800 p-4 rounded mb-4">
-            <h3 className="text-xl font-bold text-red-600">{exp.company} - {exp.location}</h3>
-            <div className="flex justify-between">
-              <p className="text-gray-300 italic">{exp.role}</p>
-              <p className="text-gray-400 text-sm">{exp.duration}</p>
+        return sections.experience.map((exp, index) => (
+          <div 
+            key={`${exp.company}-${exp.role}`}
+            className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg mb-6 
+                      transform hover:scale-[1.02] transition-all duration-300 animate-fade-in"
+            style={{ animationDelay: `${index * 200}ms` }}
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-red-500 to-red-700 
+                              bg-clip-text text-transparent">{exp.company}</h3>
+                <p className="text-gray-400">{exp.location}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-gray-300 font-medium">{exp.role}</p>
+                <p className="text-gray-500 text-sm">{exp.duration}</p>
+              </div>
             </div>
-            <ul className="list-disc pl-5 mt-2 space-y-1">
-              {exp.highlights.map(highlight => (
-                <li key={highlight} className="text-gray-400 text-sm">{highlight}</li>
+            <ul className="space-y-2">
+              {exp.highlights.map((highlight, i) => (
+                <li 
+                  key={highlight} 
+                  className="text-gray-400 flex items-start space-x-2"
+                  style={{ animationDelay: `${(index * 200) + (i * 100)}ms` }}
+                >
+                  <span className="text-red-500 mt-1">•</span>
+                  <span>{highlight}</span>
+                </li>
               ))}
             </ul>
           </div>
@@ -117,54 +157,71 @@ const PriyanshPortfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-8">
-      <div className="max-w-4xl w-full bg-gray-800 rounded-lg shadow-2xl p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 
+                    text-white flex items-center justify-center p-4 md:p-8">
+      <div 
+        className={`max-w-4xl w-full bg-gradient-to-br from-gray-800 to-gray-900 
+                   rounded-xl shadow-2xl p-6 md:p-8 transform transition-all duration-1000 
+                   ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+      >
         <div className="flex flex-col md:flex-row items-center mb-8">
-          <img 
-            src="preview.jpg" 
-            alt="Priyansh Sourav" 
-            className="rounded-full border-4 border-red-600 w-48 h-48 mb-4 md:mr-8"
-          />
+          <div 
+            onClick={handleImageClick}
+            className={`relative group cursor-pointer transform transition-all duration-500 
+                      hover:scale-105 ${isRotating ? 'rotate-360' : ''}`}
+          >
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-400 
+                          rounded-full opacity-75 group-hover:opacity-100 blur transition duration-500"></div>
+            <img 
+              src="preview.jpg" 
+              alt="Priyansh Sourav" 
+              className="relative rounded-full w-48 h-48 mb-4 md:mr-8 object-cover"
+            />
+          </div>
           <div className="text-center md:text-left">
-            <h1 className="text-3xl font-bold text-red-600">Priyansh Sourav</h1>
-            <h2 className="text-xl text-gray-400">Data Engineer</h2>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-700 
+                          bg-clip-text text-transparent mb-2">
+              Priyansh Sourav
+            </h1>
+            <h2 className="text-xl text-gray-400 mb-4">Data Engineer</h2>
+            <div className="flex justify-center md:justify-start space-x-4">
+              {socialLinks.map(link => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 hover:text-red-400 transform hover:scale-110 
+                           transition-all duration-300"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-8">
           <div className="flex justify-center space-x-4 mb-6">
             {['bio', 'skills', 'experience'].map(section => (
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
-                className={`px-4 py-2 rounded transition ${
+                className={`px-6 py-2 rounded-lg transition-all duration-300 transform 
+                          hover:scale-105 ${
                   activeSection === section 
-                    ? 'bg-red-600 text-white' 
-                    : 'bg-gray-700 text-gray-400 hover:bg-gray-600'
+                    ? 'bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg' 
+                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
                 }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
             ))}
           </div>
-          <div className="bg-gray-700 p-6 rounded">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg">
             {renderSection()}
           </div>
-        </div>
-
-        <div className="flex justify-center space-x-4">
-          {socialLinks.map(link => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-red-600 hover:text-red-400 transition"
-              aria-label={link.name}
-            >
-              {link.icon}
-            </a>
-          ))}
         </div>
       </div>
     </div>
