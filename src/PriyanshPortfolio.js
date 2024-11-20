@@ -121,7 +121,7 @@ const PriyanshPortfolio = () => {
       <div className="max-w-4xl w-full bg-gray-800 rounded-lg shadow-2xl p-8">
         <div className="flex flex-col md:flex-row items-center mb-8">
           <img 
-            src="/api/placeholder/200/200" 
+            src="preview.jpg" 
             alt="Priyansh Sourav" 
             className="rounded-full border-4 border-red-600 w-48 h-48 mb-4 md:mr-8"
           />
