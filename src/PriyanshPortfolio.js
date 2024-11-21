@@ -170,7 +170,7 @@ const PriyanshPortfolio = () => {
             className={`relative group cursor-pointer transform transition-all duration-500 
                       hover:scale-105 ${isRotating ? 'rotate-360' : ''}`}
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-400 
+            <div className="absolute -inset-0.5  
                           rounded-full opacity-75 group-hover:opacity-100 blur transition duration-500"></div>
             <img 
               src="preview.jpg" 
