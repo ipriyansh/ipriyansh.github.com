@@ -20,7 +20,7 @@ Welcome to my GitHub portfolio! I have expertise in data engineering, cloud comp
 ## 🌱 Currently Learning
 - Advanced Machine Learning with TensorFlow
 - Real-time data streaming with Apache Kafka
-- Azure Data Engineering
+- Google Cloud Data Engineering
 
 ---
 
@@ -33,7 +33,3 @@ Welcome to my GitHub portfolio! I have expertise in data engineering, cloud comp
 
 Feel free to explore my repositories and projects. Contributions, feedback, and collaborations are always welcome!
 
----
-
-### 📄 License
-This repository is licensed under the MIT License. See the [LICENSE](https://github.com/ipriyansh.github.io/LICENSE) file for more details.
