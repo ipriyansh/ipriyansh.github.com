@@ -44,11 +44,32 @@ const PriyanshPortfolio = () => {
   ];
 
   const sections = {
-    bio: `Priyansh Sourav is a Business Technology Professional with 5+ years of experience bridging tech and business teams to deliver data-driven solutions. With expertise in Python, SQL, and GCP (BigQuery), he specializes in building scalable ETL pipelines, automating workflows, and creating executive dashboards that drive business decisions.`,
+    projects: [
+      {
+        title: 'Real-Time KPI Dashboard',
+        description: 'Designed and developed a live dashboard using Power BI and BigQuery that tracks key metrics in real-time for over 50 users. The dashboard drove product decisions and received appreciation from leadership.',
+        technologies: ['Power BI', 'BigQuery', 'Python'],
+        link: 'https://github.com/ipriyansh/kpi-dashboard'
+      },
+      {
+        title: 'ETL Automation Framework',
+        description: 'Built automated ETL pipelines using Python and GCP that reduced data processing time by 80%. Enabled structured dataset delivery for downstream analytics.',
+        technologies: ['Python', 'GCP', 'BigQuery'],
+        link: 'https://github.com/ipriyansh/etl-automation'
+      },
+      {
+        title: 'Portfolio Website',
+        description: 'This personal portfolio is a fully responsive React-based site that showcases my professional experience, skills, and projects.',
+        technologies: ['React', 'Tailwind CSS', 'GitHub Pages'],
+        link: 'https://ipriyansh.github.io'
+      }
+    ],
+    bio: `Priyansh Sourav is a Business Technology Professional with 5+ years of experience bridging tech and business teams to deliver data-driven solutions. With expertise in Python, SQL, and GCP (BigQuery), he specializes in building scalable ETL pipelines, automating workflows, and creating executive dashboards that drive business decisions. He has consistently delivered stakeholder-aligned data products and led feature prioritization initiatives to streamline strategic insights.`,
     skills: [
-      'Python', 'SQL', 'PySpark', 'Google Cloud Platform', 'BigQuery',
+      'Python', 'SQL', 'PySpark', 'Google Cloud Platform', 'BigQuery', 'MySQL',
       'ETL Pipelines', 'Power BI', 'Tableau', 'Data Processing', 'DevOps',
-      'A/B Testing', 'Git', 'JIRA', 'Agile Methodologies'
+      'A/B Testing', 'Data Storytelling', 'Excel', 'Git', 'JIRA', 'Confluence',
+      'Agile Methodologies', 'Stakeholder Communication', 'Feature Prioritization'
     ],
     experience: [
       {
@@ -58,10 +79,12 @@ const PriyanshPortfolio = () => {
         duration: 'Dec 2021 - Present',
         highlights: [
           'Built ETL pipelines in Python and BigQuery to process 10M+ records daily',
-          'Developed real-time KPI dashboard used by 50+ employees',
-          'Automated data processing tasks, reducing prep time by 80%',
-          'Created Power BI dashboards for executive reviews',
-          'Cut cloud costs by 30% through performance analysis',
+          'Developed real-time KPI dashboard used by 50+ employees with positive feedback from leadership',
+          'Automated data processing tasks, reducing manual prep time by 80%',
+          'Created Power BI dashboards for executive reviews enabling strategic decisions',
+          'Collaborated with 50+ stakeholders across departments to define and prioritize features',
+          'Optimized query performance and reduced cloud computing cost by 30%',
+          'Mentored 5 junior engineers and led analysis of 1TB+ datasets to uncover trends for roadmap development'
         ]
       },
       {
@@ -71,8 +94,9 @@ const PriyanshPortfolio = () => {
         duration: 'Dec 2019 - Dec 2021',
         highlights: [
           'Improved deployment pipeline, reducing failure rate by 30%',
-          'Decreased downtime by 50% with monitoring systems',
-          'Analyzed user behavior data to optimize query performance by 30%'
+          'Implemented monitoring systems to reduce downtime by 50%',
+          'Analyzed user behavior to identify system friction and improved query performance by 30%',
+          'Supported development of scalable systems to accommodate growing user base'
         ]
       }
     ]
@@ -115,6 +139,21 @@ const PriyanshPortfolio = () => {
             </ul>
           </div>
         ));
+      case 'projects':
+        return (
+          <div className="grid gap-6">
+            {sections.projects.map((project, index) => (
+              <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in">
+                <h3 className="text-xl font-bold text-red-500 mb-2">{project.title}</h3>
+                <p className="text-gray-300 mb-2">{project.description}</p>
+                <div className="text-sm text-gray-400 mb-2">Tech Stack: {project.technologies.join(', ')}</div>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-red-400 hover:underline">
+                  View Project
+                </a>
+              </div>
+            ))}
+          </div>
+        );
       default:
         return null;
     }
@@ -141,7 +180,7 @@ const PriyanshPortfolio = () => {
         </div>
         <div className="mb-8">
           <div className="flex justify-center space-x-4 mb-6">
-            {['bio', 'skills', 'experience'].map(section => (
+            {['bio', 'skills', 'experience', 'projects'].map(section => (
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
