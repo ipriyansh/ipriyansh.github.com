@@ -44,39 +44,24 @@ const PriyanshPortfolio = () => {
   ];
 
   const sections = {
-    bio: `Priyansh Sourav is a dedicated Data Engineer with a strong foundation in data processing, 
-          ETL pipeline development, and cloud-based solutions, currently working at Accenture. 
-          With proficiency in Python, SQL, and Google Cloud Platform (BigQuery), he has driven 
-          significant improvements in data handling and workflow efficiency.`,
+    bio: `Priyansh Sourav is a Business Technology Professional with 5+ years of experience bridging tech and business teams to deliver data-driven solutions. With expertise in Python, SQL, and GCP (BigQuery), he specializes in building scalable ETL pipelines, automating workflows, and creating executive dashboards that drive business decisions.`,
     skills: [
-      'Python', 
-      'SQL', 
-      'R',
-      'Google Cloud Platform', 
-      'BigQuery', 
-      'ETL Pipelines', 
-      'Data Processing',
-      'DevOps',
-      'Continuous Integration',
-      'Agile Methodologies'
+      'Python', 'SQL', 'PySpark', 'Google Cloud Platform', 'BigQuery',
+      'ETL Pipelines', 'Power BI', 'Tableau', 'Data Processing', 'DevOps',
+      'A/B Testing', 'Git', 'JIRA', 'Agile Methodologies'
     ],
     experience: [
       {
         company: 'Accenture',
-        location: 'Kolkata, India',
+        location: 'Gurugram, India',
         role: 'Data Engineer',
         duration: 'Dec 2021 - Present',
         highlights: [
-          'Developed complex ETL processes using Python and BigQuery, increasing efficiency by 40%',
-          'Processed and analyzed 1TB of data using GCP BigQuery, improving data processing efficiency',
-          'Collaborated with stakeholders to identify business process improvement opportunities',
-          'Implemented agile methodologies to streamline project workflows and enhance cross-functional team productivity',
-          'Designed and optimized BigQuery datasets for large-scale data storage and analysis',
-          'Automated manual data preparation for 10 million records, reducing processing time by 80%',
-          'Refactored legacy code to improve readability and maintainability',
-          'Managed end-to-end data processes for two complex dashboards',
-          'Developed and maintained ETL pipelines for transforming raw data into structured datasets',
-          'Implemented advanced SQL queries to analyze customer data and identify key trends'
+          'Built ETL pipelines in Python and BigQuery to process 10M+ records daily',
+          'Developed real-time KPI dashboard used by 50+ employees',
+          'Automated data processing tasks, reducing prep time by 80%',
+          'Created Power BI dashboards for executive reviews',
+          'Cut cloud costs by 30% through performance analysis',
         ]
       },
       {
@@ -85,9 +70,9 @@ const PriyanshPortfolio = () => {
         role: 'DevOps Engineer',
         duration: 'Dec 2019 - Dec 2021',
         highlights: [
-          'Monitored automated build and continuous software integration processes',
-          'Collaborated with team to analyze system solutions based on client requirements',
-          'Decreased test environment downtime by 50% through proactive monitoring and troubleshooting'
+          'Improved deployment pipeline, reducing failure rate by 30%',
+          'Decreased downtime by 50% with monitoring systems',
+          'Analyzed user behavior data to optimize query performance by 30%'
         ]
       }
     ]
@@ -96,40 +81,23 @@ const PriyanshPortfolio = () => {
   const renderSection = () => {
     switch(activeSection) {
       case 'bio':
-        return (
-          <p className="text-gray-300 leading-relaxed animate-fade-in">
-            {sections.bio}
-          </p>
-        );
+        return <p className="text-gray-300 leading-relaxed animate-fade-in">{sections.bio}</p>;
       case 'skills':
         return (
           <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {sections.skills.map((skill, index) => (
-              <li 
-                key={skill}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg shadow-lg 
-                          transform hover:scale-105 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-center text-gray-300 font-medium">
-                  {skill}
-                </div>
+              <li key={skill} className="bg-gray-800 p-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 animate-fade-in">
+                <div className="text-center text-gray-300 font-medium">{skill}</div>
               </li>
             ))}
           </ul>
         );
       case 'experience':
         return sections.experience.map((exp, index) => (
-          <div 
-            key={`${exp.company}-${exp.role}`}
-            className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg mb-6 
-                      transform hover:scale-[1.02] transition-all duration-300 animate-fade-in"
-            style={{ animationDelay: `${index * 200}ms` }}
-          >
+          <div key={`${exp.company}-${exp.role}`} className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6 animate-fade-in">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
               <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-red-500 to-red-700 
-                              bg-clip-text text-transparent">{exp.company}</h3>
+                <h3 className="text-xl font-bold text-red-500">{exp.company}</h3>
                 <p className="text-gray-400">{exp.location}</p>
               </div>
               <div className="text-right">
@@ -139,11 +107,7 @@ const PriyanshPortfolio = () => {
             </div>
             <ul className="space-y-2">
               {exp.highlights.map((highlight, i) => (
-                <li 
-                  key={highlight} 
-                  className="text-gray-400 flex items-start space-x-2"
-                  style={{ animationDelay: `${(index * 200) + (i * 100)}ms` }}
-                >
+                <li key={highlight} className="text-gray-400 flex items-start space-x-2">
                   <span className="text-red-500 mt-1">•</span>
                   <span>{highlight}</span>
                 </li>
@@ -157,69 +121,37 @@ const PriyanshPortfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 
-                    text-white flex items-center justify-center p-4 md:p-8">
-      <div 
-        className={`max-w-4xl w-full bg-gradient-to-br from-gray-800 to-gray-900 
-                   rounded-xl shadow-2xl p-6 md:p-8 transform transition-all duration-1000 
-                   ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-      >
+    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4 md:p-8">
+      <div className={`max-w-4xl w-full bg-gray-800 rounded-xl shadow-2xl p-6 md:p-8 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="flex flex-col md:flex-row items-center mb-8">
-          <div 
-            onClick={handleImageClick}
-            className={`relative group cursor-pointer transform transition-all duration-500 
-                      hover:scale-105 ${isRotating ? 'rotate-360' : ''}`}
-          >
-            <div className="absolute -inset-0.5  
-                          rounded-full opacity-75 group-hover:opacity-100 blur transition duration-500"></div>
-            <img 
-              src="preview.jpg" 
-              alt="Priyansh Sourav" 
-              className="relative rounded-full w-48 h-48 mb-4 md:mr-8 object-cover"
-            />
+          <div onClick={handleImageClick} className={`relative group cursor-pointer transform transition-all duration-500 hover:scale-105 ${isRotating ? 'rotate-360' : ''}`}>
+            <img src="preview.jpg" alt="Priyansh Sourav" className="relative rounded-full w-48 h-48 mb-4 md:mr-8 object-cover" />
           </div>
           <div className="text-center md:text-left">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-700 
-                          bg-clip-text text-transparent mb-2">
-              Priyansh Sourav
-            </h1>
-            <h2 className="text-xl text-gray-400 mb-4">Data Engineer</h2>
+            <h1 className="text-4xl font-bold text-red-500 mb-2">Priyansh Sourav</h1>
+            <h2 className="text-xl text-gray-400 mb-4">Data Engineer | Product-Oriented Technologist</h2>
             <div className="flex justify-center md:justify-start space-x-4">
               {socialLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-red-500 hover:text-red-400 transform hover:scale-110 
-                           transition-all duration-300"
-                  aria-label={link.name}
-                >
+                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-red-400 transform hover:scale-110 transition-all duration-300" aria-label={link.name}>
                   {link.icon}
                 </a>
               ))}
             </div>
           </div>
         </div>
-
         <div className="mb-8">
           <div className="flex justify-center space-x-4 mb-6">
             {['bio', 'skills', 'experience'].map(section => (
               <button
                 key={section}
                 onClick={() => setActiveSection(section)}
-                className={`px-6 py-2 rounded-lg transition-all duration-300 transform 
-                          hover:scale-105 ${
-                  activeSection === section 
-                    ? 'bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg' 
-                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                }`}
+                className={`px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 ${activeSection === section ? 'bg-red-600 text-white shadow-lg' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
             ))}
           </div>
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
             {renderSection()}
           </div>
         </div>
